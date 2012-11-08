@@ -3,7 +3,7 @@
 ## Description
 A Solr bundle that embeds Solr 4 into OSGi
 
-## Exported packages
+## OSGi Exported packages
 * org.apache.solr(4.0.0)
 * org.apache.solr.analysis(4.0.0)
 * org.apache.solr.client.solrj(4.0.0)
@@ -58,7 +58,7 @@ A Solr bundle that embeds Solr 4 into OSGi
 * org.apache.solr.util.plugin(4.0.0)
 * org.apache.solr.util.xslt(4.0.0)
 
-## Dependencies
+## OSGi Dependencies
 * __System Bundle - org.apache.felix.framework (3.0.8)__
 	* javax.management
 	* javax.management.openmbean
@@ -173,7 +173,9 @@ A Solr bundle that embeds Solr 4 into OSGi
 	* org.apache.lucene.util.mutable
 	* org.apache.lucene.util.packed
 
-## Embedded JARs
-* solr-core-4.0.0.jar* solr-solrj-4.0.0.jar
+## OSGi Embedded JARs
+* solr-core-4.0.0.jar
+* solr-solrj-4.0.0.jar
+
 ## Dependency Graph
-![alt text](http://raw.github.com.everydayimmirror.in/liveSense/org.liveSense.framework.solr/master/diagram.svg "")
+![alt text](http://raw.github.com.everydayimmirror.in/liveSense/org.liveSense.framework.solr/master/osgidependencies.svg "")
