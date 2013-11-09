@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><features name="liveSense-${liveSense.version}-framework-solr" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+	<feature name="liveSense-framework-solr" version="${liveSense.framework.solr.version}" description="liveSense framework solr">
+        <feature>liveSense-core-apache-commons</feature>
+        <feature>liveSense-core-apache-httpclient4</feature>
+        <feature>liveSense-framework-lucene</feature>
+        <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.guava/11_1</bundle>
+		<bundle>mvn:com.github.livesense/org.liveSense.framework.solr/${liveSense.framework.solr.version}</bundle>
+	</feature>
+</features>
