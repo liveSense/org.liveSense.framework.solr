@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-	      <groupId>com.github.livesense</groupId>
-	      <artifactId>org.liveSense.parent</artifactId>
-	      <version>1.0.6-SNAPSHOT</version>
+		  <groupId>com.github.livesense</groupId>
+		  <artifactId>org.liveSense.parent</artifactId>
+		  <version>1.0.6-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-    <version>1.0.6-SNAPSHOT</version>
+	<version>1.0.6-SNAPSHOT</version>
 	<scm>
 		<connection>scm:git:https://github.com/liveSense/org.liveSense.framework.solr.git</connection>
 		<developerConnection>scm:git:https://github.com/liveSense/org.liveSense.framework.solr.git</developerConnection>
@@ -37,36 +37,110 @@
 							com.vividsolutions.jts.*;resolution:=optional,
 							org.slf4j.impl.*;resolution:=optional,
 							org.apache.commons.cli.*;resolution:=optional,
-                            org.apache.zookeeper.*;resolution:=optional,
+							org.apache.hadoop.*;resolution:=optional,
+							org.restlet.*;resolution:=optional,
+							org.apache.zookeeper.server.quorum.*;resolution:=optional,
+							com.carrotsearch.randomizedtesting.*;resolution:=optional,
+							org.junit.*;resolution:=optional,
+							junit.*;resolution:=optional,
+							morfologik.stemming.*;resolution:=optional,
+							org.carrot2.util.preprocessor.*;resolution:=optional,
+							org.fest.assertions.*;resolution:=optional,
+							org.seasar.framework.*;resolution:=optional,
+							org.springframework.*;resolution:=optional,
+							org.tartarus.snowball.*;resolution:=optional,
+							org.uncommons.maths.random.*;resolution:=optional,
+							org.carrot2.source.*;resolution:=optional,
+							org.kitesdk.morphline.*;resolution:=optional,
+							org.xmlpull.v1.*;resolution:=optional,
+							org.apache.tika.*;resolution:=optional,
+							com.sun.mail.gimap.*;resolution:=optional,
+							com.sun.mail.imap.*;resolution:=optional,
+							javax.mail.*;resolution:=optional,
+							javax.mail.internet.*;resolution:=optional,
+							javax.mail.search.*;resolution:=optional,
+							com.google.inject.*;resolution:=optional,
+							org.codehaus.jackson.*;resolution:=optional,
+							sun.misc.*;resolution:=optional,
 							*
 							</Import-Package>
 						<Embed-Transitive>true</Embed-Transitive>
+						<!-- 	solr-uima, -->
 						<Embed-Dependency>
 							solr-core,
 							solr-solrj,
-<!--
-							spatial4j,
-							lucene-core,
-							lucene-analyzers-common,
-							lucene-analyzers-phonetic,
-							lucene-analyzers-stempel,
-							lucene-analyzers-icu,
-							lucene-facet,
-							lucene-highlighter,
-							lucene-memory,
-							lucene-misc,
-							lucene-queries,
-							lucene-queryparser,
-							lucene-spatial,
-							lucene-suggest,
-							lucene-grouping
-                            -->
+							solr-analysis-extras,
+							solr-dataimporthandler,
+							solr-dataimporthandler-extras,
+							solr-velocity,
+							solr-morphlines-core,
+							solr-morphlines-cell,
+							solr-map-reduce,
+							solr-langid,
+							solr-clustering,
+							solr-cell,
+							hppc,
+							carrot2-mini,
+							attributes-binder,
+							metrics-core,
+							langdetect,
+							config,
+							jsonic,
+							mahout-math,
+							mahout-collections,
+							simple-xml,
+							argparse4j
 						</Embed-Dependency>
 					</instructions>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<!--
+
+net.sourceforge.argparse4j
+net.sourceforge.argparse4j.helper
+net.sourceforge.argparse4j.impl
+net.sourceforge.argparse4j.impl.action
+net.sourceforge.argparse4j.impl.choice
+net.sourceforge.argparse4j.impl.type
+net.sourceforge.argparse4j.inf
+org.apache.commons.math.linear,version=[2.2,3)
+org.apache.mahout.math.list
+org.apache.mahout.math.map
+org.carrot2.util.preprocessor.shaded.apache.commons.beanutils
+org.carrot2.util.preprocessor.shaded.apache.commons.logging
+org.carrot2.util.preprocessor.shaded.apache.log
+org.carrot2.util.preprocessor.shaded.apache.log.format
+org.carrot2.util.preprocessor.shaded.apache.log.output.io
+org.carrot2.util.preprocessor.shaded.apache.log4j
+org.carrot2.util.preprocessor.shaded.apache.oro.text.perl
+org.carrot2.util.preprocessor.shaded.apache.tools.ant
+org.carrot2.util.preprocessor.shaded.apache.tools.ant.taskdefs
+org.carrot2.util.preprocessor.shaded.apache.tools.ant.types
+org.carrot2.util.preprocessor.shaded.apache.velocity.tools.config
+org.codehaus.jackson,version=[1.9,2)
+org.codehaus.jackson.annotate,version=[1.9,2)
+org.codehaus.jackson.map,version=[1.9,2)
+org.codehaus.jackson.map.annotate,version=[1.9,2)
+org.codehaus.jackson.util,version=[1.9,2)
+org.fest.assertions
+org.seasar.framework.container
+org.seasar.framework.container.factory
+org.seasar.framework.log
+org.simpleframework.xml
+org.simpleframework.xml.convert
+org.simpleframework.xml.core
+org.simpleframework.xml.strategy
+org.simpleframework.xml.stream
+org.springframework.context
+org.springframework.web.context
+org.springframework.web.context.support
+org.tartarus.snowball
+org.tartarus.snowball.ext
+org.uncommons.maths.random
+-->
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.solr</groupId>
@@ -77,20 +151,6 @@
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-core</artifactId>
 			<version>${solr.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-impl</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-jdk14</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.solr</groupId>
@@ -103,7 +163,159 @@
 			<artifactId>solr-dataimporthandler</artifactId>
 			<version>${solr.version}</version>
 		</dependency>
-        
+
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-dataimporthandler-extras</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-velocity</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+<!--
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-uima</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+-->
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-morphlines-core</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-morphlines-cell</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-map-reduce</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-langid</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-clustering</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-cell</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.carrot2</groupId>
+			<artifactId>carrot2-mini</artifactId>
+			<version>3.9.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.carrotsearch</groupId>
+			<artifactId>hppc</artifactId>
+			<version>0.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-core</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.cybozu.labs</groupId>
+			<artifactId>langdetect</artifactId>
+			<version>1.1-20120112</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.typesafe</groupId>
+			<artifactId>config</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.arnx</groupId>
+			<artifactId>jsonic</artifactId>
+			<version>1.3.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.mahout</groupId>
+			<artifactId>mahout-math</artifactId>
+			<version>0.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.mahout</groupId>
+			<artifactId>mahout-collections</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.carrot2.attributes</groupId>
+			<artifactId>attributes-processor</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.carrot2.attributes</groupId>
+			<artifactId>attributes-binder</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.simpleframework</groupId>
+			<artifactId>simple-xml</artifactId>
+			<version>2.7.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.argparse4j</groupId>
+			<artifactId>argparse4j</artifactId>
+			<version>0.4.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.argparse4j</groupId>
+			<artifactId>argparse4j</artifactId>
+			<version>0.4.4</version>
+		</dependency>
+<!--
+		<dependency>
+			<groupId>org.restlet.jee</groupId>
+			<artifactId>org.restlet</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+-->
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>restlet</id>
+			<name>restlet</name>
+			<url>http://maven.restlet.com/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	</repositories>
 </project>
