@@ -31,6 +31,7 @@
 							org.apache.solr.*;version=${solr.version}
 						</_exportcontents>
 						<Import-Package>
+							javax.servlet.*;version=3.0.0,
 							com.ctc.wstx.stax;resolution:=optional,
 							org.eclipse.jetty.*;resolution:=optional,
 							org.apache.lucene.sandbox.queries.*;resolution:=optional,
